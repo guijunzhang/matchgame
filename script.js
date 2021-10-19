@@ -39,6 +39,7 @@ class MixOrMatch {
         this.timer = document.getElementById('time-remaining')
         this.ticker = document.getElementById('flips');
         this.audioController = new AudioController();
+        this.compliments = document.getElementById('compliment');
     }
 
     startGame() {
@@ -125,6 +126,17 @@ class MixOrMatch {
             let randIndex = Math.floor(Math.random() * (i + 1));
             cardsArray[randIndex].style.order = i;
             cardsArray[i].style.order = randIndex;
+        }
+    }
+    compliments() {
+        if (this.ticker < 24) {
+            this.compliments.innerText = "A new time high!!! Happy Halloween!";
+        } 
+        if (this.ticker >= 24 && this.ticker <= 40) {
+            this.compliments.innerText = "A well attempt! Happy Halloween!";
+        }
+        if (this.ticker > 40) {
+            this.compliments.innerText =  "A feeble attempt but neverless an attempt. Happy Halloween!";
         }
     }
     getCardType(card) {
